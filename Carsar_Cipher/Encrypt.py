@@ -19,5 +19,21 @@ class CaesarCipher:
             x.append(self.alpha[((z+self.shift)%26)])
         print("".join(x))
         return 
+    def dencrypt(self):
+        data=str(input("Please enter a text: "))
+        if data.isalpha()==True:
+            data=data.lower()
+            pass
+        else:
+            raise IndexError("Please enter only alphabets not other symbols")
+        k=list(data)
+        x=[]
+        for char in k:
+            z=self.alpha.index(char)
+            x.append(self.alpha[((z-self.shift)%26)])
+        print("".join(x))
+        return         
+        
 z=CaesarCipher(7)
 z.encrypt()
+z.dencrypt()
